@@ -1,0 +1,15 @@
+import glob 
+myPath = 'C:\\Users\\gsoft\\Documents\\Python Scripts\\**\\*.txt' #note C:
+allFiles = glob.glob(myPath, recursive= True)
+
+singleFileObj = " " # An empty object to be populated with data from all files 
+
+for eachFile in allFiles: # Read all files in a directory
+    try:
+        with open(eachFile) as file: # Open each file one after the other using a Context Manager
+            for line in file: # Read each line in the file
+                
+                	singleFileObj +=line # adding all lines from all files into one object
+    except Exception as e:
+    	print(e)
+print(singleFileObj) # Displaying the populated object
